@@ -12,7 +12,7 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -55,6 +55,7 @@
                         <li><a runat="server" href="~/Categories">Loại Sản Phẩm</a></li>
                         <li><a runat="server" href="~/Products">Sản phẩm</a></li>
                         <li><a runat="server" href="~/Orders">Đơn hàng</a></li>
+                        <li><a runat="server" href="~/Stocks">Quản lý kho</a></li>
                         <li><a runat="server" href="~/Contact">Liên hệ</a></li>
                     </ul>
                 </div>
