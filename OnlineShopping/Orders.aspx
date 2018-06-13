@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Đơn Hàng" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Orders.aspx.cs" Inherits="OnlineShopping.Orders" %>
+﻿<%@ Page Title="Quản lý đơn Hàng" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Orders.aspx.cs" Inherits="OnlineShopping.Orders" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -105,13 +105,11 @@
                 <asp:LinkButton CssClass="btn btn-danger" ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Hủy bỏ" />
             </div>
         </InsertItemTemplate>
-
         <ItemTemplate>
             <div class="form-group">
                 <asp:LinkButton CssClass="btn btn-primary" ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Thêm mới chi tiết đơn hàng" />
             </div>
         </ItemTemplate>
-
     </asp:FormView>
 
     <asp:GridView CssClass="table table-striped table-bordered" ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" DataKeyNames="ID">
@@ -119,9 +117,9 @@
             <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" ReadOnly="True" InsertVisible="False" />
             <asp:BoundField DataField="DonHang_ID" HeaderText="Mã Đơn Hàng" SortExpression="DonHang_ID" ReadOnly="True" />
             <asp:BoundField DataField="SanPham_ID" HeaderText="Mã Sản Phẩm" SortExpression="SanPham_ID" />
-            <asp:BoundField DataField="DonGia" HeaderText="Đơn Giá" SortExpression="DonGia" ReadOnly="True" />
+            <asp:BoundField DataField="DonGia" HeaderText="Đơn Giá" SortExpression="DonGia" ReadOnly="True" DataFormatString="{0:n0}" />
             <asp:BoundField DataField="SoLuong" HeaderText="Số Lượng" SortExpression="SoLuong" />
-            <asp:BoundField DataField="ThanhTien" HeaderText="Thành Tiền" SortExpression="ThanhTien" />
+            <asp:BoundField DataField="ThanhTien" HeaderText="Thành Tiền" SortExpression="ThanhTien" DataFormatString="{0:n0}" />
             <asp:CommandField ShowDeleteButton="True" HeaderText="Sửa|Xóa" ShowEditButton="True" UpdateText="Cập Nhật" DeleteText="Xóa" CancelText="Hủy Bỏ" EditText="Sửa"  />
         </Columns>
     </asp:GridView>
