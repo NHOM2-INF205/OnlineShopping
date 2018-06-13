@@ -48,7 +48,7 @@
         </ItemTemplate>
     </asp:FormView>
 
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:QuanLyBanHangConnectionString %>" DeleteCommand="DELETE FROM [Kho] WHERE [ID] = @original_ID" InsertCommand="INSERT INTO [Kho] ([TenKho]) VALUES (@TenKho)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT [ID], [TenKho] FROM [Kho] ORDER BY [ID]" UpdateCommand="UPDATE [Kho] SET [TenKho] = @TenKho WHERE [ID] = @original_ID">
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [Kho] WHERE [ID] = @original_ID" InsertCommand="INSERT INTO [Kho] ([TenKho]) VALUES (@TenKho)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT [ID], [TenKho] FROM [Kho] ORDER BY [ID]" UpdateCommand="UPDATE [Kho] SET [TenKho] = @TenKho WHERE [ID] = @original_ID">
         <DeleteParameters>
             <asp:Parameter Name="original_ID" Type="Int32" />
         </DeleteParameters>
@@ -60,5 +60,5 @@
             <asp:Parameter Name="original_ID" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:QuanLyBanHangConnectionString %>" SelectCommand="SELECT Kho.TenKho, LoSanPham.SanPham_ID, SanPham.TenSP, LoSanPham.TonKho, LoSanPham.ThoiGianNhap, ChiTietLoSanPham.MaSKU FROM Kho INNER JOIN LoSanPham ON Kho.ID = LoSanPham.Kho_ID INNER JOIN SanPham ON LoSanPham.SanPham_ID = SanPham.ID INNER JOIN ChiTietLoSanPham ON LoSanPham.ID = ChiTietLoSanPham.LoSanPham_ID"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Kho.TenKho, LoSanPham.SanPham_ID, SanPham.TenSP, LoSanPham.TonKho, LoSanPham.ThoiGianNhap, ChiTietLoSanPham.MaSKU FROM Kho INNER JOIN LoSanPham ON Kho.ID = LoSanPham.Kho_ID INNER JOIN SanPham ON LoSanPham.SanPham_ID = SanPham.ID INNER JOIN ChiTietLoSanPham ON LoSanPham.ID = ChiTietLoSanPham.LoSanPham_ID"></asp:SqlDataSource>
 </asp:Content>

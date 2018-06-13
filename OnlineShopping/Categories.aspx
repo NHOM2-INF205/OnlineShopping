@@ -6,7 +6,7 @@
             <li class="breadcrumb-item"><a runat="server" href="~/Categories">Loại sản phẩm</a></li>
         </ol>
     </nav>
-    <asp:FormView ID="FormView1" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource1">
+    <asp:FormView ID="FormView1" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource1" AllowPaging="True" Width="514px">
         <EditItemTemplate>
             ID:
             <asp:Label ID="IDLabel1" runat="server" Text='<%# Eval("ID") %>' />
@@ -36,7 +36,7 @@
             &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
         </ItemTemplate>
     </asp:FormView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:QuanLyBanHangConnectionString %>" DeleteCommand="DELETE FROM [LoaiSanPham] WHERE [ID] = @ID" InsertCommand="INSERT INTO [LoaiSanPham] ([TenLoaiSP]) VALUES (@TenLoaiSP)" SelectCommand="SELECT [ID], [TenLoaiSP] FROM [LoaiSanPham] ORDER BY [ID]" UpdateCommand="UPDATE [LoaiSanPham] SET [TenLoaiSP] = @TenLoaiSP WHERE [ID] = @ID">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [LoaiSanPham] WHERE [ID] = @ID" InsertCommand="INSERT INTO [LoaiSanPham] ([TenLoaiSP]) VALUES (@TenLoaiSP)" SelectCommand="SELECT [ID], [TenLoaiSP] FROM [LoaiSanPham] ORDER BY [ID]" UpdateCommand="UPDATE [LoaiSanPham] SET [TenLoaiSP] = @TenLoaiSP WHERE [ID] = @ID">
         <DeleteParameters>
             <asp:Parameter Name="ID" Type="Int32" />
         </DeleteParameters>

@@ -20,7 +20,7 @@
         </Columns>
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server"
-        ConnectionString="<%$ ConnectionStrings:QuanLyBanHangConnectionString %>"
+        ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
         SelectCommand="SELECT 
                             DISTINCT DonHang.ID, 
                             DonHang.TenNguoiMua, 
@@ -59,7 +59,7 @@
             <asp:BoundField DataField="TrangThai" HeaderText="Tên trạng thái" SortExpression="TrangThai" />
         </Columns>
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:QuanLyBanHangConnectionString %>"
+    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
         DeleteCommand="DELETE FROM [TrangThaiDonHang] WHERE [ID] = @ID"
         InsertCommand="INSERT INTO [TrangThaiDonHang] ([TrangThai]) VALUES (@TrangThai)"
         SelectCommand="SELECT [ID], [TrangThai] FROM [TrangThaiDonHang] ORDER BY [ID]"
@@ -126,7 +126,7 @@
         </Columns>
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource2" runat="server"
-        ConnectionString="<%$ ConnectionStrings:QuanLyBanHangConnectionString %>"
+        ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
         SelectCommand="SELECT ChiTietDonHang.ID, ChiTietDonHang.SanPham_ID, ChiTietDonHang.DonHang_ID, SanPham.DonGia, ChiTietDonHang.SoLuong, ChiTietDonHang.ThanhTien FROM ChiTietDonHang INNER JOIN SanPham ON ChiTietDonHang.SanPham_ID = SanPham.ID ORDER BY ChiTietDonHang.DonHang_ID"
         InsertCommand="INSERT INTO [ChiTietDonHang] ([SanPham_ID], [DonHang_ID], [SoLuong], [ThanhTien]) VALUES (@SanPham_ID, @DonHang_ID, @SoLuong, @ThanhTien)"
         UpdateCommand="UPDATE [ChiTietDonHang] SET [SanPham_ID] = @SanPham_ID, [SoLuong] = @SoLuong, [ThanhTien] = @ThanhTien WHERE [ID] = @ID"
