@@ -33,7 +33,7 @@
         </InsertItemTemplate>
         <ItemTemplate>
             <div class="form-group">
-                <asp:LinkButton CssClass="btn btn-primary" ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Thêm mới 1 đơn hàng" />
+                <asp:LinkButton CssClass="btn btn-success" ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Thêm mới 1 đơn hàng" />
             </div>
         </ItemTemplate>
     </asp:FormView>
@@ -108,7 +108,7 @@
         </InsertItemTemplate>
         <ItemTemplate>
             <div class="form-group">
-                <asp:LinkButton CssClass="btn btn-primary" ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Thêm mới 1 trạng thái đơn hàng" />
+                <asp:LinkButton CssClass="btn btn-success" ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Thêm mới 1 trạng thái đơn hàng" />
             </div>
         </ItemTemplate>
     </asp:FormView>
@@ -167,7 +167,7 @@
         </InsertItemTemplate>
         <ItemTemplate>
             <div class="form-group">
-                <asp:LinkButton CssClass="btn btn-primary" ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Thêm mới chi tiết đơn hàng" />
+                <asp:LinkButton CssClass="btn btn-success" ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Thêm mới chi tiết đơn hàng" />
             </div>
         </ItemTemplate>
     </asp:FormView>
