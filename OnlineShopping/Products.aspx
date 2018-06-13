@@ -6,7 +6,7 @@
             <li class="breadcrumb-item"><a runat="server" href="~/Products">Sản phẩm</a></li>
         </ol>
     </nav>
-    <asp:FormView ID="ProductForm" runat="server" DataSourceID="SqlDataSource1">
+    <asp:FormView ID="ProductForm" runat="server" AllowPaging="True" DataSourceID="SqlDataSource1">
         <EditItemTemplate>
             TenLoaiSP:
             <asp:TextBox ID="TenLoaiSPTextBox" runat="server" Text='<%# Bind("TenLoaiSP") %>' />
@@ -64,29 +64,29 @@
             &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
         </InsertItemTemplate>
         <ItemTemplate>
-            TenLoaiSP:
+            Loại sản phẩm:
             <asp:Label ID="TenLoaiSPLabel" runat="server" Text='<%# Bind("TenLoaiSP") %>' />
             <br />
-            TenSP:
+            Tên sản phẩm:
             <asp:Label ID="TenSPLabel" runat="server" Text='<%# Bind("TenSP") %>' />
             <br />
-            DonGia:
+            Đơn giá:
             <asp:Label ID="DonGiaLabel" runat="server" Text='<%# Bind("DonGia") %>' />
             <br />
-            DonViTinh:
+            Đơn vị tính:
             <asp:Label ID="DonViTinhLabel" runat="server" Text='<%# Bind("DonViTinh") %>' />
             <br />
-            ChatLieu:
+            Chất liệu:
             <asp:Label ID="ChatLieuLabel" runat="server" Text='<%# Bind("ChatLieu") %>' />
             <br />
-            TrongLuong:
+            Trọng lượng:
             <asp:Label ID="TrongLuongLabel" runat="server" Text='<%# Bind("TrongLuong") %>' />
             <br />
-            MoTa:
+            Mô tả:
             <asp:Label ID="MoTaLabel" runat="server" Text='<%# Bind("MoTa") %>' />
             <br />
-            HinhAnh:
-            <asp:Label ID="HinhAnhLabel" runat="server" Text='<%# Bind("HinhAnh") %>' />
+            Hình ảnh:
+            <asp:Image ID="HinhAnhLabel" runat="server" ImageUrl='<%# Bind("HinhAnh") %>' />
             <br />
             <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
             &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />

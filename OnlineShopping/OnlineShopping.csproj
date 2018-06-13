@@ -157,6 +157,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Images\products\Inspiron-7447.png" />
+    <Content Include="Images\products\macbook-pro.png" />
     <Content Include="Orders.aspx" />
     <Content Include="Products.aspx" />
     <Content Include="Scripts\bootstrap.js" />
