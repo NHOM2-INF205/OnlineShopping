@@ -46,13 +46,16 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                    <a class="navbar-brand" runat="server" href="~/">NHÓM 2</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" href="~/">Trang chủ</a></li>
+                        <li><a runat="server" href="~/About">Giới thiệu</a></li>
+                        <li><a runat="server" href="~/Categories">Loại Sản Phẩm</a></li>
+                        <li><a runat="server" href="~/Products">Sản phẩm</a></li>
+                        <li><a runat="server" href="~/Orders">Đơn hàng</a></li>
+                        <li><a runat="server" href="~/Contact">Liên hệ</a></li>
                     </ul>
                 </div>
             </div>
@@ -62,7 +65,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - INF205 Nhóm 2 - PH05481 - PH05279</p>
             </footer>
         </div>
 
