@@ -13,6 +13,15 @@ namespace OnlineShopping {
     public partial class Orders {
         
         /// <summary>
+        /// FormView2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FormView FormView2;
+        
+        /// <summary>
         /// GridView1 control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace OnlineShopping {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
+        /// FormView3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FormView FormView3;
+        
+        /// <summary>
         /// GridView3 control.
         /// </summary>
         /// <remarks>
@@ -40,13 +58,13 @@ namespace OnlineShopping {
         protected global::System.Web.UI.WebControls.GridView GridView3;
         
         /// <summary>
-        /// SqlDataSource3 control.
+        /// SqlDataSource_TrangThaiDonHang control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource_TrangThaiDonHang;
         
         /// <summary>
         /// FormView1 control.

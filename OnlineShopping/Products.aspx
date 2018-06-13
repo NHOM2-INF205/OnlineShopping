@@ -74,13 +74,13 @@
             <Columns>
                 <asp:ImageField DataImageUrlField="HinhAnh" HeaderText="Hình ảnh" ControlStyle-Width="50" />
                 <asp:BoundField DataField="ID" HeaderText="Mã Sản Phẩm" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
-                <asp:BoundField DataField="LoaiSanPham_ID" HeaderText="Mã Loại" SortExpression="LoaiSanPham_ID" ControlStyle-Width="50"/>
+                <asp:BoundField DataField="LoaiSanPham_ID" HeaderText="Mã Loại" SortExpression="LoaiSanPham_ID" ControlStyle-Width="50" />
                 <asp:BoundField DataField="TenLoaiSP" HeaderText="Tên Loại" SortExpression="TenLoaiSP" ReadOnly="true" />
                 <asp:BoundField DataField="TenSP" HeaderText="Tên Sản Phẩm" SortExpression="TenSP" />
                 <asp:BoundField DataField="DonGia" HeaderText="Đơn Giá" SortExpression="DonGia" DataFormatString="{0:n0}" ControlStyle-Width="100" />
-                <asp:BoundField DataField="DonViTinh" HeaderText="Đơn Vị Tính" SortExpression="DonViTinh" ControlStyle-Width="50"/>
+                <asp:BoundField DataField="DonViTinh" HeaderText="Đơn Vị Tính" SortExpression="DonViTinh" ControlStyle-Width="50" />
                 <asp:BoundField DataField="ChatLieu" HeaderText="Chất Liệu" SortExpression="ChatLieu" ControlStyle-Width="100" />
-                <asp:BoundField DataField="TrongLuong" HeaderText="Trọng Lượng"  SortExpression="TrongLuong" ControlStyle-Width="50" />
+                <asp:BoundField DataField="TrongLuong" HeaderText="Trọng Lượng" SortExpression="TrongLuong" ControlStyle-Width="50" />
                 <asp:BoundField DataField="MoTa" HeaderText="Mô Tả" SortExpression="MoTa" />
                 <asp:CommandField ShowDeleteButton="True" HeaderText="Sửa|Xóa" ShowEditButton="True" UpdateText="Cập Nhật" DeleteText="Xóa" CancelText="Hủy Bỏ" EditText="Sửa" />
             </Columns>

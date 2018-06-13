@@ -31,13 +31,22 @@ namespace OnlineShopping {
         protected global::System.Web.UI.WebControls.GridView GridView2;
         
         /// <summary>
-        /// SqlDataSource2 control.
+        /// SqlDataSource_KhoHang control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource_KhoHang;
+        
+        /// <summary>
+        /// FormView2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FormView FormView2;
         
         /// <summary>
         /// GridView3 control.
@@ -49,13 +58,22 @@ namespace OnlineShopping {
         protected global::System.Web.UI.WebControls.GridView GridView3;
         
         /// <summary>
-        /// DSLoSanPham control.
+        /// SqlDataSource_LoSanPham control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource DSLoSanPham;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource_LoSanPham;
+        
+        /// <summary>
+        /// ChiTietLoSanPhamFormView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FormView ChiTietLoSanPhamFormView;
         
         /// <summary>
         /// GridView1 control.
@@ -67,12 +85,12 @@ namespace OnlineShopping {
         protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// SqlDataSource1 control.
+        /// SqlDataSource_ChiTietLoSanPham control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource_ChiTietLoSanPham;
     }
 }

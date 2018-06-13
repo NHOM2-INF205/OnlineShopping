@@ -8,6 +8,35 @@
             <li class="breadcrumb-item"><a runat="server" href="~/Orders"><%:Title %></a></li>
         </ol>
     </nav>
+    <asp:FormView ID="FormView2" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource1" Width="100%">
+        <InsertItemTemplate>
+            <div class="form-group">
+                <label>Mã Tài Khoản</label>
+                <asp:TextBox CssClass="form-control" ID="NguoiDung_IDTextBox" runat="server" Text='<%# Bind("NguoiDung_ID") %>' />
+            </div>
+            <div class="form-group">
+                <label>Người Mua</label>
+                <asp:TextBox CssClass="form-control" ID="TenNguoiMuaTextBox" runat="server" Text='<%# Bind("TenNguoiMua") %>' />
+            </div>
+            <div class="form-group">
+                <label>Điện Thoại Liên Hệ</label>
+                <asp:TextBox CssClass="form-control" ID="DienThoaiLienHeTextBox" runat="server" Text='<%# Bind("DienThoaiLienHe") %>' />
+            </div>
+            <div class="form-group">
+                <label>Địa Chỉ Giao Hàng</label>
+                <asp:TextBox CssClass="form-control" ID="DiaChiGiaoHangTextBox" runat="server" Text='<%# Bind("DiaChiGiaoHang") %>' />
+            </div>
+            <div class="form-group">
+                <asp:LinkButton CssClass="btn btn-primary" ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Thêm" />
+                <asp:LinkButton CssClass="btn btn-danger" ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Hủy bỏ" />
+            </div>
+        </InsertItemTemplate>
+        <ItemTemplate>
+            <div class="form-group">
+                <asp:LinkButton CssClass="btn btn-primary" ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Thêm mới 1 đơn hàng" />
+            </div>
+        </ItemTemplate>
+    </asp:FormView>
     <asp:GridView CssClass="table table-striped table-bordered" ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource1">
         <Columns>
             <asp:BoundField DataField="ID" HeaderText="Mã Đơn Hàng" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
@@ -16,13 +45,14 @@
             <asp:BoundField DataField="DiaChiGiaoHang" HeaderText="Địa chỉ giao hàng" SortExpression="DiaChiGiaoHang" />
             <asp:BoundField DataField="NgayDatHang" HeaderText="Thời Gian Đặt Hàng" SortExpression="NgayDatHang" ReadOnly="True" />
             <asp:BoundField DataField="TrangThaiDonHang_ID" HeaderText="Mã Trạng Thái" SortExpression="TrangThaiDonHang_ID" />
-            <asp:CommandField ShowEditButton="True" HeaderText="Sửa" CancelText="Hủy Bỏ" EditText="Sửa" UpdateText="Cập nhật" />
+            <asp:CommandField ShowDeleteButton="True" HeaderText="Sửa|Xóa" ShowEditButton="True" UpdateText="Cập Nhật" DeleteText="Xóa" CancelText="Hủy Bỏ" EditText="Sửa" />
         </Columns>
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server"
         ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
         SelectCommand="SELECT 
-                            DISTINCT DonHang.ID, 
+                            DonHang.ID, 
+                            DonHang.NguoiDung_ID, 
                             DonHang.TenNguoiMua, 
                             DonHang.DienThoaiLienHe, 
                             DonHang.DiaChiGiaoHang, 
@@ -30,12 +60,24 @@
                             DonHang.TrangThaiDonHang_ID,
                             TrangThaiDonHang.TrangThai 
                        FROM 
-                            ChiTietDonHang INNER JOIN DonHang ON ChiTietDonHang.DonHang_ID = DonHang.ID 
-                                           INNER JOIN TrangThaiDonHang ON DonHang.TrangThaiDonHang_ID = TrangThaiDonHang.ID"
+                            DonHang INNER JOIN TrangThaiDonHang ON DonHang.TrangThaiDonHang_ID = TrangThaiDonHang.ID"
         UpdateCommand="UPDATE DonHang 
                        SET TenNguoiMua = @TenNguoiMua, DienThoaiLienHe = @DienThoaiLienHe, DiaChiGiaoHang = @DiaChiGiaoHang, 
                            NguoiXacNhan = @NguoiXacNhan, TrangThaiDonHang_ID = @TrangThaiDonHang_ID 
-                       WHERE (ID = @ID)">
+                       WHERE (ID = @ID)"
+        DeleteCommand="DELETE FROM DonHang WHERE (ID = @ID)"
+        InsertCommand="INSERT INTO DonHang(TrangThaiDonHang_ID, NguoiDung_ID, TenNguoiMua, DienThoaiLienHe, DiaChiGiaoHang, NgayDatHang) 
+                       VALUES (1, @NguoiDung_ID, @TenNguoiMua, @DienThoaiLienHe, @DiaChiGiaoHang, CURRENT_TIMESTAMP)">
+        <DeleteParameters>
+            <asp:Parameter Name="ID" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="TrangThaiDonHang_ID" />
+            <asp:Parameter Name="NguoiDung_ID" />
+            <asp:Parameter Name="TenNguoiMua" />
+            <asp:Parameter Name="DienThoaiLienHe" />
+            <asp:Parameter Name="DiaChiGiaoHang" />
+        </InsertParameters>
         <UpdateParameters>
             <asp:Parameter Name="TenNguoiMua" />
             <asp:Parameter Name="DienThoaiLienHe" />
@@ -53,13 +95,31 @@
             <li class="breadcrumb-item"><a runat="server" href="~/Orders">Trạng thái đơn hàng</a></li>
         </ol>
     </nav>
-    <asp:GridView CssClass="table table-striped table-bordered" ID="GridView3" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource3">
+    <asp:FormView ID="FormView3" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource_TrangThaiDonHang" Width="100%">
+        <InsertItemTemplate>
+            <div class="form-group">
+                <label>Tên trạng thái</label>
+                <asp:TextBox CssClass="form-control" ID="TrangThaiTextBox" runat="server" Text='<%# Bind("TrangThai") %>' />
+            </div>
+            <div class="form-group">
+                <asp:LinkButton CssClass="btn btn-primary" ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Thêm" />
+                <asp:LinkButton CssClass="btn btn-danger" ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Hủy bỏ" />
+            </div>
+        </InsertItemTemplate>
+        <ItemTemplate>
+            <div class="form-group">
+                <asp:LinkButton CssClass="btn btn-primary" ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Thêm mới 1 trạng thái đơn hàng" />
+            </div>
+        </ItemTemplate>
+    </asp:FormView>
+    <asp:GridView CssClass="table table-striped table-bordered" ID="GridView3" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource_TrangThaiDonHang">
         <Columns>
             <asp:BoundField DataField="ID" HeaderText="Mã trạng thái" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
             <asp:BoundField DataField="TrangThai" HeaderText="Tên trạng thái" SortExpression="TrangThai" />
+            <asp:CommandField ShowDeleteButton="True" HeaderText="Sửa|Xóa" ShowEditButton="True" UpdateText="Cập Nhật" DeleteText="Xóa" CancelText="Hủy Bỏ" EditText="Sửa" />
         </Columns>
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+    <asp:SqlDataSource ID="SqlDataSource_TrangThaiDonHang" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
         DeleteCommand="DELETE FROM [TrangThaiDonHang] WHERE [ID] = @ID"
         InsertCommand="INSERT INTO [TrangThaiDonHang] ([TrangThai]) VALUES (@TrangThai)"
         SelectCommand="SELECT [ID], [TrangThai] FROM [TrangThaiDonHang] ORDER BY [ID]"
@@ -120,7 +180,7 @@
             <asp:BoundField DataField="DonGia" HeaderText="Đơn Giá" SortExpression="DonGia" ReadOnly="True" DataFormatString="{0:n0}" />
             <asp:BoundField DataField="SoLuong" HeaderText="Số Lượng" SortExpression="SoLuong" />
             <asp:BoundField DataField="ThanhTien" HeaderText="Thành Tiền" SortExpression="ThanhTien" DataFormatString="{0:n0}" />
-            <asp:CommandField ShowDeleteButton="True" HeaderText="Sửa|Xóa" ShowEditButton="True" UpdateText="Cập Nhật" DeleteText="Xóa" CancelText="Hủy Bỏ" EditText="Sửa"  />
+            <asp:CommandField ShowDeleteButton="True" HeaderText="Sửa|Xóa" ShowEditButton="True" UpdateText="Cập Nhật" DeleteText="Xóa" CancelText="Hủy Bỏ" EditText="Sửa" />
         </Columns>
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource2" runat="server"
