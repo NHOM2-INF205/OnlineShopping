@@ -56,6 +56,7 @@
                         <li><a runat="server" href="~/Products">Sản phẩm</a></li>
                         <li><a runat="server" href="~/Orders">Đơn hàng</a></li>
                         <li><a runat="server" href="~/Stocks">Quản lý kho</a></li>
+                        <li><a runat="server" href="~/Accounts">Quản lý tài khoản</a></li>
                         <li><a runat="server" href="~/Contact">Liên hệ</a></li>
                     </ul>
                 </div>
@@ -69,7 +70,7 @@
                 <p>&copy; <%: DateTime.Now.Year %> - INF205 Nhóm 2 - PH05481 - PH05279</p>
             </footer>
         </div>
-
     </form>
+    <script src="https://uhchat.net/code.php?f=4ac51d"></script>
 </body>
 </html>
