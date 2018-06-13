@@ -112,7 +112,7 @@
             <li class="breadcrumb-item"><a runat="server" href="~/Stocks">Chi Tiết Lô Sản Phẩm</a></li>
         </ol>
     </nav>
-    <asp:FormView ID="ChiTietLoSanPhamFormView" runat="server" DataSourceID="SqlDataSource_ChiTietLoSanPham">
+    <asp:FormView ID="FormView3" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource_ChiTietLoSanPham">
         <InsertItemTemplate>
             <div class="form-group">
                 <label>Mã Lô</label>
@@ -123,20 +123,23 @@
                 <asp:TextBox CssClass="form-control" ID="MaSKUTextBox" runat="server" Text='<%# Bind("MaSKU") %>' />
             </div>
             <div class="form-group">
-                <asp:LinkButton CssClass="btn btn-primary" ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Thêm" />
-                <asp:LinkButton CssClass="btn btn-danger" ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Hủy bỏ" />
+                <asp:LinkButton CssClass="btn btn-primary" ID="LinkButton1" runat="server" CausesValidation="True" CommandName="Insert" Text="Thêm" />
+                <asp:LinkButton CssClass="btn btn-danger" ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Hủy bỏ" />
             </div>
         </InsertItemTemplate>
         <ItemTemplate>
             <div class="form-group">
-                <asp:LinkButton CssClass="btn btn-primary" ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Thêm Mới 1 Lô Sản Phẩm" />
+                <asp:LinkButton CssClass="btn btn-primary" ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Thêm Mới 1 Chi Tiết Của 1 Lô Sản Phẩm" />
             </div>
         </ItemTemplate>
     </asp:FormView>
-    <asp:GridView CssClass="table table-striped table-bordered" ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource_ChiTietLoSanPham">
+    <asp:GridView CssClass="table table-striped table-bordered" ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource_ChiTietLoSanPham">
         <Columns>
-            <asp:BoundField DataField="ID" HeaderText="Mã Chi Tiết Lô" SortExpression="ID" ReadOnly="True" />
-            <asp:BoundField DataField="LoSanPham_ID" HeaderText="Mã Lô" SortExpression="LoSanPham_ID" />
+            <asp:BoundField DataField="ID" HeaderText="Mã CT Lô" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+            <asp:BoundField DataField="Kho_ID" HeaderText="Mã Kho" SortExpression="Kho_ID" ReadOnly="True" />
+            <asp:BoundField DataField="LoSanPham_ID" HeaderText="Mã Lô" SortExpression="LoSanPham_ID" ReadOnly="True" />
+            <asp:BoundField DataField="SanPham_ID" HeaderText="Mã Sản Phẩm" SortExpression="SanPham_ID" ReadOnly="True" />
+            <asp:BoundField DataField="TenSP" HeaderText="Tên Sản Phẩm" SortExpression="TenSP" ReadOnly="True" />
             <asp:BoundField DataField="MaSKU" HeaderText="Mã SKU" SortExpression="MaSKU" />
             <asp:CommandField HeaderText="Sửa|Xóa" ShowDeleteButton="True" ShowEditButton="True" EditText="Sửa" DeleteText="Xóa" UpdateText="Cập Nhật" CancelText="Hủy Bỏ" />
         </Columns>
@@ -144,8 +147,8 @@
     <asp:SqlDataSource ID="SqlDataSource_ChiTietLoSanPham" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
         DeleteCommand="DELETE FROM [ChiTietLoSanPham] WHERE [ID] = @ID"
         InsertCommand="INSERT INTO [ChiTietLoSanPham] ([LoSanPham_ID], [MaSKU]) VALUES (@LoSanPham_ID, @MaSKU)"
-        UpdateCommand="UPDATE [ChiTietLoSanPham] SET [LoSanPham_ID] = @LoSanPham_ID, [MaSKU] = @MaSKU WHERE [ID] = @ID" 
-        SelectCommand="SELECT [ID], [LoSanPham_ID], [MaSKU] FROM [ChiTietLoSanPham]">
+        UpdateCommand="UPDATE [ChiTietLoSanPham] SET [MaSKU] = @MaSKU WHERE [ID] = @ID"
+        SelectCommand="SELECT ChiTietLoSanPham.ID, LoSanPham.Kho_ID, ChiTietLoSanPham.LoSanPham_ID, LoSanPham.SanPham_ID, SanPham.TenSP, ChiTietLoSanPham.MaSKU FROM ChiTietLoSanPham INNER JOIN LoSanPham ON ChiTietLoSanPham.LoSanPham_ID = LoSanPham.ID INNER JOIN SanPham ON LoSanPham.SanPham_ID = SanPham.ID">
         <DeleteParameters>
             <asp:Parameter Name="ID" Type="Int32" />
         </DeleteParameters>
@@ -154,7 +157,6 @@
             <asp:Parameter Name="MaSKU" Type="String" />
         </InsertParameters>
         <UpdateParameters>
-            <asp:Parameter Name="LoSanPham_ID" Type="Int32" />
             <asp:Parameter Name="MaSKU" Type="String" />
             <asp:Parameter Name="ID" Type="Int32" />
         </UpdateParameters>
