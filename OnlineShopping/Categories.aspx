@@ -6,37 +6,33 @@
             <li class="breadcrumb-item"><a runat="server" href="~/Categories">Loại sản phẩm</a></li>
         </ol>
     </nav>
-    <asp:FormView ID="FormView1" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource1" AllowPaging="True" Width="514px">
-        <EditItemTemplate>
-            ID:
-            <asp:Label ID="IDLabel1" runat="server" Text='<%# Eval("ID") %>' />
-            <br />
-            TenLoaiSP:
-            <asp:TextBox ID="TenLoaiSPTextBox" runat="server" Text='<%# Bind("TenLoaiSP") %>' />
-            <br />
-            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
-            &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-        </EditItemTemplate>
+    <asp:FormView ID="FormView1" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource_LoaiSanPham">
         <InsertItemTemplate>
-            TenLoaiSP:
-            <asp:TextBox ID="TenLoaiSPTextBox" runat="server" Text='<%# Bind("TenLoaiSP") %>' />
-            <br />
-            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+            <div class="form-group">
+                <label>Tên loại sản phẩm</label>
+                <asp:TextBox CssClass="form-control" ID="TenLoaiSPTextBox" runat="server" Text='<%# Bind("TenLoaiSP") %>' />
+            </div>
+            <div class="form-group">
+                <asp:LinkButton CssClass="btn btn-primary" ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Thêm" />
+                <asp:LinkButton CssClass="btn btn-danger" ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Hủy bỏ" />
+            </div>
         </InsertItemTemplate>
         <ItemTemplate>
-            ID:
-            <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
-            <br />
-            TenLoaiSP:
-            <asp:Label ID="TenLoaiSPLabel" runat="server" Text='<%# Bind("TenLoaiSP") %>' />
-            <br />
-            <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
-            &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
-            &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+            <div class="form-group">
+                <asp:LinkButton CssClass="btn btn-success" ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Thêm mới 1 loại sản phẩm" />
+            </div>
         </ItemTemplate>
     </asp:FormView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [LoaiSanPham] WHERE [ID] = @ID" InsertCommand="INSERT INTO [LoaiSanPham] ([TenLoaiSP]) VALUES (@TenLoaiSP)" SelectCommand="SELECT [ID], [TenLoaiSP] FROM [LoaiSanPham] ORDER BY [ID]" UpdateCommand="UPDATE [LoaiSanPham] SET [TenLoaiSP] = @TenLoaiSP WHERE [ID] = @ID">
+
+    <asp:GridView CssClass="table table-striped table-bordered" ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource_LoaiSanPham">
+        <Columns>
+            <asp:BoundField DataField="ID" HeaderText="Mã loại" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+            <asp:BoundField DataField="TenLoaiSP" HeaderText="Tên loại" SortExpression="TenLoaiSP" />
+            <asp:CommandField ShowDeleteButton="True" HeaderText="Sửa|Xóa" ShowEditButton="True" UpdateText="Cập Nhật" DeleteText="Xóa" CancelText="Hủy Bỏ" EditText="Sửa" />
+        </Columns>
+    </asp:GridView>
+
+    <asp:SqlDataSource ID="SqlDataSource_LoaiSanPham" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [LoaiSanPham] WHERE [ID] = @ID" InsertCommand="INSERT INTO [LoaiSanPham] ([TenLoaiSP]) VALUES (@TenLoaiSP)" SelectCommand="SELECT [ID], [TenLoaiSP] FROM [LoaiSanPham] ORDER BY [ID]" UpdateCommand="UPDATE [LoaiSanPham] SET [TenLoaiSP] = @TenLoaiSP WHERE [ID] = @ID">
         <DeleteParameters>
             <asp:Parameter Name="ID" Type="Int32" />
         </DeleteParameters>
