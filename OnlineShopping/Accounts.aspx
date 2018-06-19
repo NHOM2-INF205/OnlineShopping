@@ -121,7 +121,7 @@
 
         <ItemTemplate>
             <div class="form-group">
-                <asp:LinkButton CssClass="btn btn-success" ID="LinkButton1" runat="server" CausesValidation="False" CommandName="New" Text="Thêm mới 1 trạng thái" />
+                <asp:LinkButton CssClass="btn btn-success" ID="LinkButton1" runat="server" CausesValidation="False" CommandName="New" Text="Thêm trạng thái" />
             </div>
         </ItemTemplate>
 
