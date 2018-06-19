@@ -9,5 +9,5 @@
     <h3>Về chúng tôi</h3>
     <p>Sinh viên khóa 13.1 trường Cao đẳng thực hành FPT Polytechnic</p>
     <p>Môn học: Điện toán đám mây</p>
-    <p>Nhóm 2</p>
+    <p>Nhóm 2 - INF205</p>
 </asp:Content>
