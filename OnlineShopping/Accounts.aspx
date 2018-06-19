@@ -101,10 +101,49 @@
         </UpdateParameters>
     </asp:SqlDataSource>
 
-    <%--<nav aria-label="breadcrumb">
+    <nav aria-label="breadcrumb">
         <ol class="breadcrumb" style="margin-top: 30px">
             <li class="breadcrumb-item"><a runat="server" href="~/Accounts"><%: Title %></a></li>
             <li class="breadcrumb-item"><a runat="server" href="~/Accounts">Trạng thái tài khoản</a></li>
         </ol>
-    </nav>--%>
+    </nav>
+    <asp:FormView ID="FormView2" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource_TrangThaiTaiKhoan">
+        <InsertItemTemplate>
+            <div class="form-group">
+                <label>Tên trạng thái</label>
+                <asp:TextBox CssClass="form-control" ID="TenTTTextBox" runat="server" Text='<%# Bind("TenTrangThai") %>' />
+            </div>
+            <div class="form-group">
+                <asp:LinkButton CssClass="btn btn-primary" ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Thêm" />
+                <asp:LinkButton CssClass="btn btn-danger" ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Hủy bỏ" />
+            </div>
+        </InsertItemTemplate>
+
+        <ItemTemplate>
+            <div class="form-group">
+                <asp:LinkButton CssClass="btn btn-success" ID="LinkButton1" runat="server" CausesValidation="False" CommandName="New" Text="Thêm mới 1 trạng thái" />
+            </div>
+        </ItemTemplate>
+
+    </asp:FormView>
+    <asp:GridView CssClass="table table-striped table-bordered" ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource_TrangThaiTaiKhoan">
+        <Columns>
+            <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+            <asp:BoundField DataField="TenTrangThai" HeaderText="Tên Trạng Thái" SortExpression="TenTrangThai" />
+            <asp:CommandField ShowDeleteButton="True" HeaderText="Sửa|Xóa" ShowEditButton="True" UpdateText="Cập Nhật" DeleteText="Xóa" CancelText="Hủy Bỏ" EditText="Sửa" />
+        </Columns>
+    </asp:GridView>
+    <asp:SqlDataSource ID="SqlDataSource_TrangThaiTaiKhoan" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [TrangThaiTaiKhoan] WHERE [ID] = @ID" InsertCommand="INSERT INTO [TrangThaiTaiKhoan] ([TenTrangThai]) VALUES (@TenTrangThai)" SelectCommand="SELECT [ID], [TenTrangThai] FROM [TrangThaiTaiKhoan] ORDER BY [ID]" UpdateCommand="UPDATE [TrangThaiTaiKhoan] SET [TenTrangThai] = @TenTrangThai WHERE [ID] = @ID">
+        <DeleteParameters>
+            <asp:Parameter Name="ID" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="TenTrangThai" Type="String" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="TenTrangThai" Type="String" />
+            <asp:Parameter Name="ID" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
+
 </asp:Content>
