@@ -10,5 +10,5 @@
     <p>Sinh viên khóa 13.1 trường Cao đẳng thực hành FPT Polytechnic</p>
     <p>Môn học: Điện toán đám mâyhihi/p>
     <p>Nhóm 2</p>
-    <h1>Long ML</h1>
+    <h1>manh ML</h1>
 </asp:Content>
