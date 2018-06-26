@@ -23,7 +23,7 @@
             </div>
         </ItemTemplate>
     </asp:FormView>
-    <div style="color:blue">
+    <div style="color:green">
     <asp:GridView CssClass="table table-striped table-bordered" ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource_LoaiSanPham">
         <Columns>
             <asp:BoundField DataField="ID" HeaderText="Mã loại" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
