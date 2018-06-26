@@ -37,6 +37,7 @@
             </div>
         </ItemTemplate>
     </asp:FormView>
+    <div>
     <asp:GridView CssClass="table table-striped table-bordered" ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource1">
         <Columns>
             <asp:BoundField DataField="ID" HeaderText="Mã Đơn Hàng" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
@@ -48,6 +49,7 @@
             <asp:CommandField ShowDeleteButton="True" HeaderText="Sửa|Xóa" ShowEditButton="True" UpdateText="Cập Nhật" DeleteText="Xóa" CancelText="Hủy Bỏ" EditText="Sửa" />
         </Columns>
     </asp:GridView>
+        </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server"
         ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
         SelectCommand="SELECT 

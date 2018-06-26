@@ -259,3 +259,7 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+OnlineShopping/App_Data/QuanLyBanHang_log.LDF
+OnlineShopping/App_Data/QuanLyBanHang.mdf
+OnlineShopping/App_Data/QuanLyBanHang.mdf
+OnlineShopping/App_Data/QuanLyBanHang_log.LDF
