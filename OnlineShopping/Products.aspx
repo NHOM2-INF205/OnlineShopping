@@ -1,12 +1,12 @@
 ﻿<%@ Page Title="Quản lý sản phẩm" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Products.aspx.cs" Inherits="OnlineShopping.Products" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="ProductContent" ContentPlaceHolderID="MainContent" runat="server">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb" style="margin-top: 30px">
             <li class="breadcrumb-item"><a runat="server" href="~/Products">Sản phẩm</a></li>
         </ol>
     </nav>
-    <asp:FormView ID="ProductForm" runat="server" DataSourceID="SqlDataSource_QuanLySanPham" DataKeyNames="ID" Width="100%">
+    <asp:FormView ID="ProductForm" runat="server" DataSourceID="SqlDataSource_QuanLySanPham" DataKeyNames="ID" Width="100%" >
         <InsertItemTemplate>
             <div class="form-group">
                 <label>Mã Loại Sản Phẩm</label>
@@ -69,7 +69,7 @@
     </asp:FormView>
 
     <%--Bảng sản phẩm--%>
-    <div class="table-responsive">
+    <div class="table-responsive" style="color:#337ab7">
         <asp:GridView CssClass="table table-stripped table-bordered" ID="GridViewSanPham" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource_QuanLySanPham">
             <Columns>
                 <asp:ImageField DataImageUrlField="HinhAnh" HeaderText="Hình ảnh" ControlStyle-Width="50" />
