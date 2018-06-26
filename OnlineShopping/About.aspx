@@ -8,7 +8,7 @@
     </nav>
     <h3>Về chúng tôi</h3>
     <p>Sinh viên khóa 13.1 trường Cao đẳng thực hành FPT Polytechnic</p>
-    <p>Môn học: Điện toán đám mâyhihi/p>
+    <p>Môn học: Điện toán đám mây - INF205/p>
     <p>Nhóm 2</p>
     <h1>manh ML</h1>
 </asp:Content>
