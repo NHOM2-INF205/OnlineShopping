@@ -23,7 +23,7 @@
             </div>
         </ItemTemplate>
     </asp:FormView>
-
+    <div style="color:blue">
     <asp:GridView CssClass="table table-striped table-bordered" ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource_LoaiSanPham">
         <Columns>
             <asp:BoundField DataField="ID" HeaderText="Mã loại" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
@@ -31,7 +31,6 @@
             <asp:CommandField ShowDeleteButton="True" HeaderText="Sửa|Xóa" ShowEditButton="True" UpdateText="Cập Nhật" DeleteText="Xóa" CancelText="Hủy Bỏ" EditText="Sửa" />
         </Columns>
     </asp:GridView>
-
     <asp:SqlDataSource ID="SqlDataSource_LoaiSanPham" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [LoaiSanPham] WHERE [ID] = @ID" InsertCommand="INSERT INTO [LoaiSanPham] ([TenLoaiSP]) VALUES (@TenLoaiSP)" SelectCommand="SELECT [ID], [TenLoaiSP] FROM [LoaiSanPham] ORDER BY [ID]" UpdateCommand="UPDATE [LoaiSanPham] SET [TenLoaiSP] = @TenLoaiSP WHERE [ID] = @ID">
         <DeleteParameters>
             <asp:Parameter Name="ID" Type="Int32" />
@@ -44,4 +43,5 @@
             <asp:Parameter Name="ID" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
+        </div>
 </asp:Content>
